@@ -1,0 +1,431 @@
+/* ========== ABOUT PAGE STYLES ========== */
+
+/* Section 0 - About Main Section */
+#section0-about {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  padding: 100px 80px;
+  margin: 40px 0;
+  background: linear-gradient(135deg, #83e0ff 0%, #6c757d 100%);
+  width: 100%;
+  min-height: 70vh;
+  flex-wrap: wrap;
+  position: relative;
+  border-radius: 20px;
+}
+
+/* Decorative subtle pattern */
+#section0-about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#32b7ec 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.08;
+  pointer-events: none;
+  border-radius: 20px;
+}
+
+/* About Box Styling */
+#section0-box {
+  background: white;
+  border-radius: 20px;
+  padding: 50px 40px;
+  max-width: 550px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+#section0-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+#section0-box h1 {
+  font-size: 2.2rem;
+  color: #1a2c3e;
+  margin-bottom: 20px;
+  font-weight: 700;
+  position: relative;
+}
+
+/* Decorative line under heading */
+#section0-box h1::after {
+  content: "";
+  width: 70px;
+  height: 3px;
+  background: linear-gradient(90deg, #32b7ec, #1a1f2e);
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  border-radius: 3px;
+}
+
+#section0-box p {
+  font-size: 1rem;
+  color: #4a627a;
+  line-height: 1.7;
+  margin-top: 20px;
+}
+
+#section0-box p:first-of-type {
+  font-weight: 600;
+  color: #32b7ec;
+  margin-top: 25px;
+}
+
+/* About Page Image - NOT circular, just border-radius */
+#section0-about img {
+  width: 450px;
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#section0-about img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 35px rgba(50, 183, 236, 0.2);
+}
+
+/* ========== BUYING SECTION STYLES ========== */
+#section0-buy {
+  background: linear-gradient(135deg, #e8f4f8 0%, #d4eaf1 100%);
+  padding: 80px 80px;
+  margin: 40px 0;
+  border-radius: 20px;
+  width: 100%;
+  position: relative;
+}
+
+#section0-buy::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#32b7ec 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.05;
+  pointer-events: none;
+  border-radius: 20px;
+}
+
+#section0-buy .buy-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#section0-buy .buy-content {
+  flex: 1;
+  min-width: 280px;
+}
+
+#section0-buy h2 {
+  font-size: 2rem;
+  color: #1a2c3e;
+  margin-bottom: 20px;
+  font-weight: 700;
+  position: relative;
+}
+
+#section0-buy h2::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #32b7ec, #1a1f2e);
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  border-radius: 3px;
+}
+
+#section0-buy p {
+  font-size: 1rem;
+  color: #4a627a;
+  line-height: 1.7;
+  margin-top: 20px;
+}
+
+#section0-buy ul {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+#section0-buy li {
+  padding: 8px 0;
+  font-size: 1rem;
+  color: #4a627a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#section0-buy li i {
+  color: #32b7ec;
+  font-size: 1.2rem;
+}
+
+#section0-buy .buy-image img {
+  width: 400px;
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+/* ========== SELLING SECTION STYLES ========== */
+#section0-sell {
+  background: linear-gradient(135deg, #f0e6ff 0%, #e0d4f5 100%);
+  padding: 80px 80px;
+  margin: 40px 0;
+  border-radius: 20px;
+  width: 100%;
+  position: relative;
+}
+
+#section0-sell::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#7c3aed 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.05;
+  pointer-events: none;
+  border-radius: 20px;
+}
+
+#section0-sell .sell-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#section0-sell .sell-content {
+  flex: 1;
+  min-width: 280px;
+}
+
+#section0-sell h2 {
+  font-size: 2rem;
+  color: #1a2c3e;
+  margin-bottom: 20px;
+  font-weight: 700;
+  position: relative;
+}
+
+#section0-sell h2::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #7c3aed, #32b7ec);
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  border-radius: 3px;
+}
+
+#section0-sell p {
+  font-size: 1rem;
+  color: #4a627a;
+  line-height: 1.7;
+  margin-top: 20px;
+}
+
+#section0-sell ul {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+#section0-sell li {
+  padding: 8px 0;
+  font-size: 1rem;
+  color: #4a627a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#section0-sell li i {
+  color: #7c3aed;
+  font-size: 1.2rem;
+}
+
+#section0-sell .sell-image img {
+  width: 400px;
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Tablet Devices */
+@media (max-width: 968px) {
+  #section0-about {
+    padding: 60px 40px;
+    margin: 30px 20px;
+    gap: 40px;
+  }
+
+  #section0-box {
+    padding: 35px 30px;
+    max-width: 450px;
+  }
+
+  #section0-box h1 {
+    font-size: 1.8rem;
+  }
+
+  #section0-box p {
+    font-size: 0.95rem;
+  }
+
+  #section0-about img {
+    width: 380px;
+  }
+
+  #section0-buy,
+  #section0-sell {
+    padding: 60px 40px;
+    margin: 30px 20px;
+  }
+
+  #section0-buy h2,
+  #section0-sell h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+  #section0-about {
+    flex-direction: column;
+    padding: 50px 25px;
+    margin: 20px 15px;
+    text-align: center;
+  }
+
+  #section0-box {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  #section0-box h1::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+  }
+
+  #section0-box h1 {
+    font-size: 1.6rem;
+  }
+
+  #section0-box p {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  #section0-about img {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  #section0-buy,
+  #section0-sell {
+    padding: 50px 25px;
+    margin: 20px 15px;
+    text-align: center;
+  }
+
+  #section0-buy h2::after,
+  #section0-sell h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #section0-buy .buy-container,
+  #section0-sell .sell-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #section0-buy ul,
+  #section0-sell ul {
+    text-align: left;
+    display: inline-block;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  #section0-about {
+    padding: 40px 20px;
+    margin: 15px 10px;
+  }
+
+  #section0-box {
+    padding: 25px 20px;
+  }
+
+  #section0-box h1 {
+    font-size: 1.4rem;
+  }
+
+  #section0-box p {
+    font-size: 0.85rem;
+  }
+
+  #section0-about img {
+    max-width: 280px;
+  }
+
+  #section0-buy,
+  #section0-sell {
+    padding: 40px 20px;
+    margin: 15px 10px;
+  }
+
+  #section0-buy h2,
+  #section0-sell h2 {
+    font-size: 1.4rem;
+  }
+
+  #section0-buy p,
+  #section0-sell p,
+  #section0-buy li,
+  #section0-sell li {
+    font-size: 0.85rem;
+  }
+}

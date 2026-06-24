@@ -1,0 +1,307 @@
+/* ========== CONTACT HERO ========== */
+#contact-hero {
+  background: linear-gradient(145deg, #32b7ec 0%, #1a1f2e 100%);
+  text-align: center;
+  padding: 60px 20px 50px;
+  color: #fff;
+}
+
+#contact-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #7bc9ff;
+  margin-bottom: 10px;
+}
+
+#contact-hero p {
+  font-size: 1.1rem;
+  color: #eef2ff;
+}
+
+/* ========== TAB SWITCHER ========== */
+#contact-tabs {
+  background: #f0f3fa;
+  padding: 20px 80px;
+  border-bottom: 2px solid #dce3ee;
+}
+
+.tab-switcher {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.tab-btn {
+  background: #dce3ee;
+  border: none;
+  border-radius: 40px;
+  padding: 12px 34px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a2c3e;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.5px;
+}
+
+.tab-btn.active {
+  background: linear-gradient(95deg, #0b2b5c, #1c6ea4);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.tab-btn:hover:not(.active) {
+  background: #c5d0de;
+}
+
+/* ========== SHARED TAB CONTENT ========== */
+.contact-tab-content {
+  padding: 40px 80px 60px;
+  background: #adb7c9;
+  min-height: 400px;
+}
+
+/* ========== SECTION INTRO ========== */
+.contact-intro {
+  text-align: center;
+  padding: 10px 0 30px;
+}
+
+.contact-intro h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0a0f1e;
+  margin-bottom: 8px;
+}
+
+.contact-intro p {
+  font-size: 1rem;
+  color: #1a2c3e;
+}
+
+/* ========== CONTACT FORM CARD ========== */
+.contact-form-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-form-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 36px 40px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ========== FORM GROUPS ========== */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1a2c3e;
+  margin-bottom: 6px;
+}
+
+.form-group .required {
+  color: #d9534f;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #c5d0de;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: #1a2c3e;
+  background: #f8f9fc;
+  outline: none;
+  transition: border 0.2s ease;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #1c6ea4;
+  background: #fff;
+}
+
+/* ========== SUBMIT BUTTON ========== */
+.contact-submit-btn {
+  width: 100%;
+  background: linear-gradient(95deg, #0b2b5c, #1c6ea4);
+  color: #fff;
+  border: none;
+  border-radius: 40px;
+  padding: 14px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.2s ease;
+  letter-spacing: 0.5px;
+}
+
+.contact-submit-btn:hover {
+  background: linear-gradient(95deg, #66c50e, #1ec2d8);
+  color: #0a0f1e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ========== FEEDBACK MESSAGE ========== */
+.contact-message {
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.contact-message.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.contact-message.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* ========== CONTACTS GRID ========== */
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* ========== CONTACT CARD ========== */
+.contact-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Seller badge — matches shop.html seller-badge exactly */
+.seller-badge {
+  background: linear-gradient(95deg, #66c50e, #1ec2d8);
+  color: #0a0f1e;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.contact-card h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0a0f1e;
+  margin-bottom: 14px;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: #1a2c3e;
+  margin-bottom: 8px;
+}
+
+.contact-detail i {
+  color: #1c6ea4;
+  width: 18px;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.contact-detail span {
+  word-break: break-word;
+}
+
+/* ========== NO CONTACTS MESSAGE ========== */
+.no-contacts-msg {
+  text-align: center;
+  padding: 40px;
+  color: #1a2c3e;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  #contact-tabs {
+    padding: 16px 20px;
+  }
+
+  .tab-switcher {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tab-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .contact-tab-content {
+    padding: 30px 20px 40px;
+  }
+
+  .contact-form-card {
+    padding: 24px 20px;
+  }
+
+  #contact-hero h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tab-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .contact-intro h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ========== CONTACT DELETE BUTTON (Seller only) ========== */
+.contact-delete-btn {
+  margin-top: 14px;
+  width: 100%;
+  background: transparent;
+  border: 2px solid #d9534f;
+  color: #d9534f;
+  border-radius: 30px;
+  padding: 7px 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.contact-delete-btn:hover {
+  background: #d9534f;
+  color: #fff;
+}

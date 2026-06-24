@@ -1,0 +1,761 @@
+/* ========== RESET & BASE ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fc;
+}
+
+/* ========== NAVIGATION BAR ========== */
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 80px;
+  background: linear-gradient(145deg, #32b7ec 0%, #1a1f2e 100%);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  height: auto;
+  min-height: 85px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+
+.logo-link img {
+  height: 70px;
+  width: auto;
+  border-radius: 100px;
+  transition: transform 0.2s ease;
+  display: block;
+  object-fit: contain;
+}
+
+.logo-link img:hover {
+  transform: scale(1.02);
+}
+
+.navigation ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.navigation li,
+.navigation a {
+  list-style: none;
+  padding: 0 14px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #f0f3fa;
+  transition: 0.25s ease;
+  position: relative;
+}
+
+.navigation a {
+  display: inline-block;
+  padding: 8px 0;
+}
+
+.navigation a:hover,
+.navigation a.active {
+  color: black;
+}
+
+.navigation li a.active::after {
+  content: "";
+  width: 40%;
+  height: 3px;
+  background: #7bc9ff;
+  position: absolute;
+  bottom: -2px;
+  left: 14px;
+  border-radius: 4px;
+}
+
+/* ========== HERO SECTION ========== */
+#section {
+  background-image: url(images/roboti.jpg);
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  min-height: 80vh;
+  width: 100%;
+  padding: 80px 80px 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  background-color: #0a0f1e;
+}
+
+#section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+#section h1,
+#section h4,
+#section p,
+#section button {
+  position: relative;
+  z-index: 2;
+}
+
+#section h1 {
+  color: #7bc9ff;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 3rem;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-logo {
+  height: 55px;
+  width: auto;
+  border-radius: 50%;
+  background: white;
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  object-fit: contain;
+  animation: fadeInImage 10s ease-out forwards;
+}
+
+@keyframes fadeInImage {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#section h4 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+#section p {
+  color: #eef2ff;
+  font-size: 1.2rem;
+  margin: 15px 0 20px;
+  max-width: 550px;
+}
+
+#section button {
+  background: linear-gradient(95deg, #0b2b5c, #1c6ea4);
+  padding: 14px 32px;
+  margin-top: 10px;
+  border-radius: 40px;
+  box-shadow: 0 8px 18px rgba(0, 20, 50, 0.4);
+  border: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: fit-content;
+  letter-spacing: 1px;
+}
+
+#section button:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(95deg, #66c50e, #1ec2d8);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.3);
+  color: black;
+}
+
+/* ========== SECTION1 - PRODUCT FEATURES ========== */
+.section-p1 {
+  padding: 60px 80px;
+}
+
+#section1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #e9ecef;
+  background: #adb7c9;
+}
+
+.features-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featureBox {
+  background: #e9ecef;
+  border-radius: 28px;
+  margin: 15px 0;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+  padding: 30px 20px;
+  text-align: center;
+  min-width: 220px;
+  transition: all 0.2s ease;
+  flex: 1 1 250px;
+  border: 1px solid #edf2f7;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.featureBox:hover {
+  transform: translateY(-5px);
+  box-shadow: 10 10px 34px rgba(0, 0, 0, 0.08);
+}
+
+.feature-img {
+  width: 100%;
+  height: 100%;
+  max-width: 120px;
+  border-radius: 50%;
+  display: block;
+  object-fit: cover;
+  filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.1));
+  max-height: 100px;
+  aspect-ratio: 1 / 1;
+}
+
+.featureBox h6 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a2c3e;
+  line-height: 1;
+  border-radius: 4px;
+  margin-top: 8px;
+  display: inline-block;
+  padding: 9px 8px 6px 8px;
+  color: black;
+  background: linear-gradient(95deg, #0766f3, #1c7da4);
+  letter-spacing: -0.3px;
+}
+
+.feature-desc {
+  font-size: 0.85rem;
+  color: #4a627a;
+  margin-top: 8px;
+}
+
+/* ========== SECTION2 - FEATURED ELECTRONICS ========== */
+#section2 {
+  background-color: #adb7c9;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.featured-header {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.featured-header h2 {
+  font-size: 2rem;
+  color: #0a0f1e;
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.featured-subtitle {
+  font-size: 1.1rem;
+  color: #0a0f1e;
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+}
+
+/* Electronics Container - Left aligned, horizontal layout with wrap */
+.electronic-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 20px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Product Box - Fixed equal dimensions */
+.electronicBox {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  width: 250px;
+  min-width: 250px;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.electronicBox:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Product Description */
+.description {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background-color: #eef2ff;
+  border-radius: 25px;
+  padding: 15px;
+  height: 100%;
+  justify-content: space-between;
+}
+
+/* Fixed image size */
+.description img {
+  border-radius: 20px;
+  margin-bottom: 5px;
+  display: block;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  background-color: #ddd;
+}
+
+.description img:hover {
+  transform: scale(1.05);
+}
+
+.description span {
+  display: block;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 5px 0;
+  color: #1a2c3e;
+}
+
+.description h5 {
+  color: #4a627a;
+  margin: 5px 0;
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Star Rating */
+.star {
+  color: #ffc107;
+  margin: 5px 0;
+  display: block;
+}
+
+.star i {
+  margin: 0 2px;
+  font-size: 1rem;
+}
+
+/* Price */
+.description h4 {
+  color: #000000;
+  font-weight: bold;
+  margin: 5px 0;
+  display: block;
+  font-size: 1.5rem;
+}
+
+/* Shopping Cart Icon */
+.description a {
+  color: #047ef8;
+  font-size: 1.5rem;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.description a:hover {
+  color: red;
+  transform: scale(1.1);
+}
+
+/* ========== SECTION3 - REPAIR SERVICES ========== */
+#section3 {
+  background-image: url(images/man.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  text-align: center;
+  padding: 100px 20px;
+  margin: 0;
+  border-radius: 0;
+  position: relative;
+}
+
+/* Dark overlay to make text readable */
+#section3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1;
+}
+
+#section3 h4,
+#section3 h2,
+#section3 p,
+#section3 button {
+  position: relative;
+  z-index: 2;
+}
+
+.section-p3 {
+  padding: 60px 80px;
+}
+
+#section3 h4 {
+  font-size: 2rem;
+  color: #7bc9ff;
+  margin-bottom: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+#section3 h2 {
+  font-size: 2.8rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+#section3 h2 span {
+  color: #66c50e;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 5px 15px;
+  border-radius: 30px;
+  display: inline-block;
+}
+
+#section3 p {
+  font-size: 1.2rem;
+  color: #eef2ff;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#section3 button {
+  background: linear-gradient(95deg, #66c50e, #1ec2d8);
+  padding: 14px 42px;
+  border-radius: 50px;
+  border: none;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #0a0f1e;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+}
+
+#section3 button:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(95deg, #7ae00f, #3dd4e8);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background: linear-gradient(145deg, #32b7ec 0%, #1a1f2e 100%);
+  color: #adb7c9;
+  text-align: center;
+  padding: 28px 20px;
+  font-size: 0.85rem;
+  border-top: 1px solid #2a3448;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 768px) {
+  #header {
+    padding: 12px 25px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .navigation ul {
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .navigation li a {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  #section {
+    padding: 60px 25px 80px;
+    background-position: 30% 20%;
+  }
+
+  #section h1 {
+    font-size: 2rem;
+  }
+
+  .hero-logo {
+    height: 42px;
+  }
+
+  #section h4 {
+    font-size: 1.2rem;
+  }
+
+  #section p {
+    font-size: 1rem;
+  }
+
+  .section-p1 {
+    padding: 40px 25px;
+  }
+
+  .features-container {
+    gap: 20px;
+  }
+
+  .featureBox {
+    min-width: 180px;
+    padding: 20px 15px;
+    width: 220px;
+    height: 220px;
+  }
+
+  .feature-img {
+    width: 100px;
+    max-height: 100px;
+  }
+
+  .featureBox h6 {
+    font-size: 1rem;
+  }
+
+  .featured-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .featured-subtitle {
+    font-size: 1rem;
+  }
+
+  .electronic-container {
+    gap: 15px;
+    padding: 15px;
+    justify-content: flex-start;
+  }
+
+  .electronicBox {
+    width: 220px;
+    min-width: 220px;
+  }
+
+  .description img {
+    width: 150px;
+    height: 150px;
+  }
+
+  /* Section 3 Responsive */
+  .section-p3 {
+    padding: 40px 25px;
+  }
+
+  #section3 {
+    padding: 70px 20px;
+  }
+
+  #section3 h4 {
+    font-size: 1.5rem;
+  }
+
+  #section3 h2 {
+    font-size: 1.8rem;
+  }
+
+  #section3 p {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+
+  #section3 button {
+    padding: 12px 32px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .electronic-container {
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .electronicBox {
+    width: 200px;
+    min-width: 200px;
+  }
+
+  .description img {
+    width: 130px;
+    height: 130px;
+  }
+
+  #section3 h2 {
+    font-size: 1.5rem;
+  }
+
+  #section3 p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .featureBox {
+    flex: 1 1 100%;
+    max-width: 260px;
+    width: 250px;
+    height: 250px;
+  }
+
+  .feature-img {
+    max-width: 90px;
+    max-height: 90px;
+  }
+
+  .electronic-container {
+    gap: 20px;
+    padding: 10px;
+    justify-content: flex-start;
+  }
+
+  .electronicBox {
+    width: 200px;
+    min-width: 200px;
+    padding: 20px;
+  }
+
+  .description {
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .description img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .description span {
+    font-size: 1rem;
+  }
+
+  .description h4 {
+    font-size: 1.2rem;
+  }
+
+  .section-p3 {
+    padding: 30px 20px;
+  }
+
+  #section3 {
+    padding: 50px 15px;
+  }
+
+  #section3 h4 {
+    font-size: 1.2rem;
+  }
+
+  #section3 h2 {
+    font-size: 1.3rem;
+  }
+
+  #section3 p {
+    font-size: 0.85rem;
+  }
+
+  #section3 button {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ========== CART BADGE IN NAV ========== */
+.cart-nav-link { position: relative; }
+.cart-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff4757;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 20px;
+  padding: 0 5px;
+  margin-left: 2px;
+  vertical-align: middle;
+  line-height: 1;
+  animation: badgePop 0.3s ease;
+}
+@keyframes badgePop {
+  0% { transform: scale(0.5); }
+  70% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}

@@ -1,0 +1,246 @@
+/* ========== LOGIN HERO ========== */
+#login-hero {
+  background: linear-gradient(145deg, #32b7ec 0%, #1a1f2e 100%);
+  text-align: center;
+  padding: 60px 20px 50px;
+  color: #fff;
+}
+
+#login-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #7bc9ff;
+  margin-bottom: 10px;
+}
+
+#login-hero p {
+  font-size: 1.1rem;
+  color: #eef2ff;
+}
+
+/* ========== TAB SWITCHER ========== */
+#login-tabs {
+  background: #f0f3fa;
+  padding: 20px 80px;
+  border-bottom: 2px solid #dce3ee;
+}
+
+.tab-switcher {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.tab-btn {
+  background: #dce3ee;
+  border: none;
+  border-radius: 40px;
+  padding: 12px 34px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a2c3e;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.5px;
+}
+
+.tab-btn.active {
+  background: linear-gradient(95deg, #0b2b5c, #1c6ea4);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.tab-btn:hover:not(.active) {
+  background: #c5d0de;
+}
+
+/* ========== SHARED TAB CONTENT ========== */
+.login-tab-content {
+  padding: 40px 80px 60px;
+  background: #adb7c9;
+  min-height: 400px;
+}
+
+/* ========== AUTH FORM CARD ========== */
+.auth-form-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.auth-form-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 36px 40px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ========== FORM GROUPS ========== */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1a2c3e;
+  margin-bottom: 6px;
+}
+
+.form-group .required {
+  color: #d9534f;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #c5d0de;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: #1a2c3e;
+  background: #f8f9fc;
+  outline: none;
+  transition: border 0.2s ease;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #1c6ea4;
+  background: #fff;
+}
+
+/* ========== ROLE SELECTOR ========== */
+.role-selector {
+  display: flex;
+  gap: 14px;
+}
+
+.role-option {
+  flex: 1;
+  cursor: pointer;
+}
+
+.role-option input[type="radio"] {
+  display: none;
+}
+
+.role-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 18px 10px;
+  border: 2px solid #c5d0de;
+  border-radius: 16px;
+  background: #f8f9fc;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.role-card i     { font-size: 1.8rem; color: #1c6ea4; }
+.role-card span  { font-weight: 700; font-size: 0.95rem; color: #1a2c3e; }
+.role-card small { font-size: 0.78rem; color: #888; }
+
+.role-option input[type="radio"]:checked + .role-card {
+  border-color: #1c6ea4;
+  background: linear-gradient(135deg, #eaf5ff, #d6eeff);
+  box-shadow: 0 4px 14px rgba(28, 110, 164, 0.2);
+}
+
+/* ========== SUBMIT BUTTON ========== */
+.auth-submit-btn {
+  width: 100%;
+  background: linear-gradient(95deg, #0b2b5c, #1c6ea4);
+  color: #fff;
+  border: none;
+  border-radius: 40px;
+  padding: 14px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.2s ease;
+  letter-spacing: 0.5px;
+}
+
+.auth-submit-btn:hover {
+  background: linear-gradient(95deg, #66c50e, #1ec2d8);
+  color: #0a0f1e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ========== FEEDBACK MESSAGE ========== */
+.auth-message {
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.auth-message.success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+.auth-message.error   { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+/* ========== SWITCH TEXT ========== */
+.auth-switch-text {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.auth-switch-text a {
+  color: #1c6ea4;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.auth-switch-text a:hover {
+  text-decoration: underline;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  #login-tabs          { padding: 16px 20px; }
+  .tab-switcher        { flex-direction: column; align-items: center; }
+  .tab-btn             { width: 100%; max-width: 300px; }
+  .login-tab-content   { padding: 30px 20px 40px; }
+  .auth-form-card      { padding: 24px 20px; }
+  #login-hero h1       { font-size: 1.8rem; }
+  .role-selector       { flex-direction: column; }
+}
+
+/* ========== UNIFIED ACCOUNT NOTICE ========== */
+.unified-account-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: linear-gradient(135deg, #e8f7ff, #dff0ff);
+  border: 2px solid #32b7ec;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+}
+.unified-account-notice i {
+  font-size: 1.4rem;
+  color: #1a9dd4;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.unified-account-notice strong {
+  display: block;
+  color: #1a2c3e;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+.unified-account-notice p {
+  color: #444;
+  font-size: 0.84rem;
+  margin: 0;
+  line-height: 1.4;
+}

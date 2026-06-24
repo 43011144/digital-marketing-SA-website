@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <title>DigitalMarketingSA - Cart</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome 6 (Free) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="shortcut icon" href="images/Logo2.png" type="image/x-icon" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="cart.css" />
+  </head>
+
+  <body>
+    <header id="header">
+      <a href="index.html" class="logo-link">
+        <img src="images/Logo.png" class="logo" alt="DigitalMarketingSA" />
+      </a>
+      <!--Navigation bar-->
+      <nav class="navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="order.html">Order</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a class="active" href="cart.html" class="cart-nav-link">Cart <span class="cart-count-badge" id="cartCountBadge" style="display:none;">0</span> 🛒</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- Cart Hero -->
+      <section id="cart-hero">
+        <h1>🛒 Your Cart</h1>
+        <p>Review your items and proceed to payment</p>
+      </section>
+
+      <!-- ===== NOT LOGGED IN WALL ===== -->
+      <section id="loginWall" class="cart-section" style="display:none;">
+        <div class="cart-login-wall">
+          <i class="fas fa-lock"></i>
+          <h2>Login Required</h2>
+          <p>You must be logged in before you can make a payment.</p>
+          <a href="login.html" class="cart-action-btn">
+            <i class="fas fa-sign-in-alt"></i> Login to Continue
+          </a>
+        </div>
+      </section>
+
+      <!-- ===== CART CONTENT ===== -->
+      <section id="cartContent" class="cart-section" style="display:none;">
+      <!-- ===== EMAILJS SETUP PANEL =====
+           Shown automatically if EmailJS keys have not been configured.
+           User enters their keys once — saved to localStorage — emails then work. -->
+      <div id="emailSetupPanel" class="emailjs-setup-panel" style="display:none;">
+        <div class="emailjs-setup-inner">
+          <h3><i class="fas fa-envelope"></i> Email Setup Required</h3>
+          <p>To receive order confirmation emails at your registered Gmail, enter your free <a href="https://www.emailjs.com" target="_blank">EmailJS</a> keys below. This is a one-time setup.</p>
+          <div class="ejs-form">
+            <label>Public Key <small>(Account → General)</small></label>
+            <input type="text" id="ejsPublicKey" placeholder="e.g. AbCdEfGhIjKlMnOp" />
+            <label>Service ID <small>(Email Services → your Gmail service)</small></label>
+            <input type="text" id="ejsServiceId" placeholder="e.g. service_abc1234" />
+            <label>Template ID <small>(Email Templates → your template)</small></label>
+            <input type="text" id="ejsTemplateId" placeholder="e.g. template_xyz7890" />
+            <p id="ejsSaveMsg" style="display:none;color:#28a745;font-weight:700;"></p>
+            <div class="ejs-actions">
+              <a href="https://www.emailjs.com" target="_blank" class="ejs-link-btn">
+                <i class="fas fa-external-link-alt"></i> Get Free Keys
+              </a>
+              <button onclick="saveEmailSetup()" class="ejs-save-btn">
+                <i class="fas fa-save"></i> Save &amp; Enable Emails
+              </button>
+              <button onclick="hideEmailSetupPanel()" class="ejs-skip-btn">Skip for now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+        <!-- Cart Items -->
+        <div class="cart-layout">
+
+          <!-- Left: Items list -->
+          <div class="cart-items-col">
+            <h2 class="cart-col-title">Items in Cart</h2>
+            <div id="cartItemsList"></div>
+            <p id="emptyCartMsg" class="empty-cart-msg" style="display:none;">
+              Your cart is empty. <a href="shop.html">Browse the shop</a>
+            </p>
+          </div>
+
+          <!-- Right: Order summary -->
+          <div class="cart-summary-col">
+            <div class="cart-summary-card">
+              <h2 class="cart-col-title">Order Summary</h2>
+
+              <div class="summary-row">
+                <span>Items</span>
+                <span id="itemCountAmt">0 items</span>
+              </div>
+              <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotalAmt">R0.00</span>
+              </div>
+              <div class="summary-row">
+                <span>Delivery</span>
+                <span class="free-tag">FREE</span>
+              </div>
+              <div class="summary-divider"></div>
+              <div class="summary-row total-row">
+                <span>Total</span>
+                <span id="totalAmt">R0.00</span>
+              </div>
+
+              <!-- Feedback message shown after placing order -->
+              <div id="cartMessage" class="cart-message" style="display:none;"></div>
+
+              <button class="cart-action-btn" id="placeOrderBtn" onclick="placeOrder()">
+                <i class="fas fa-credit-card"></i> Place Order &amp; Pay
+              </button>
+
+              <p class="payment-methods-label">Accepted payment methods:</p>
+              <div class="payment-methods">
+                <span class="payment-badge"><i class="fas fa-university"></i> Capitec</span>
+                <span class="payment-badge"><i class="fas fa-university"></i> ABSA</span>
+                <span class="payment-badge"><i class="fas fa-university"></i> Standard Bank</span>
+                <span class="payment-badge"><i class="fas fa-exchange-alt"></i> EFT</span>
+                <span class="payment-badge"><i class="fas fa-mobile-alt"></i> SnapScan</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Order confirmation shown after placing order -->
+        <div id="orderConfirmation" class="order-confirmation" style="display:none;">
+          <i class="fas fa-check-circle"></i>
+          <h2>Order Placed!</h2>
+          <p>Your order number is:</p>
+          <div class="confirm-order-number" id="confirmOrderNumber"></div>
+          <p class="confirm-item-count"><i class="fas fa-box"></i> <span id="confirmItemCount"></span> ordered</p>
+          <!-- Email delivery status — shown after order is placed -->
+          <p id="emailStatusMsg" style="display:none;font-size:0.85rem;font-weight:600;margin-top:8px;"></p>
+          <p class="confirm-instructions">
+            Use this order number as your payment reference when paying via your banking app
+            (Capitec, ABSA, Standard Bank, EFT, SnapScan, etc.)
+          </p>
+          <p class="confirm-account">
+            <strong>Account Name:</strong> DigitalMarketingSA<br />
+            <strong>Bank:</strong> FNB<br />
+            <strong>Account Number:</strong> 62849301782<br />
+            <strong>Branch Code:</strong> 250655
+          </p>
+          <!-- "I have paid" button — triggers payment confirmation email -->
+          <button id="paidBtn" class="cart-action-btn" onclick="sendPaymentEmail()" style="margin-top:20px; display:inline-block; width:auto; padding:12px 28px;">
+            <i class="fas fa-credit-card"></i> I Have Paid — Send Confirmation
+          </button>
+
+          <!-- Shown after payment email is sent -->
+          <p id="paymentSentNote" style="display:none;color:#28a745;font-weight:700;margin-top:12px;">
+            <i class="fas fa-check-circle"></i> Payment confirmation email sent to your inbox!
+          </p>
+
+          <a href="order.html" class="cart-action-btn" style="margin-top:14px; display:inline-block;">
+            <i class="fas fa-box"></i> View My Orders
+          </a>
+        </div>
+
+      </section>
+
+    </main>
+
+    <footer>
+      <p>&copy; 2025 DigitalMarketingSA. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Cart JS -->
+    <!-- EmailJS SDK — sends real emails from the browser without a mail server -->
+    <!-- Sign up free at https://www.emailjs.com to get your keys -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="send_emailjs.js"></script>
+    <script src="cart.js"></script>
+      <script src="nav.js"></script>
+  </body>
+</html>

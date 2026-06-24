@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <title>DigitalMarketingSA - Login</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="shortcut icon" href="images/Logo2.png" type="image/x-icon" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <header id="header">
+      <a href="index.html" class="logo-link">
+        <img src="images/Logo.png" class="logo" alt="DigitalMarketingSA" />
+      </a>
+      <nav class="navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="order.html">Order</a></li>
+          <li><a class="active" href="login.html">Login</a></li>
+          <li><a href="cart.html" class="cart-nav-link">Cart <span class="cart-count-badge" id="cartCountBadge" style="display:none;">0</span> 🛒</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="login-hero">
+        <h1>🔐 Welcome Back</h1>
+        <p>One account. Buy and sell electronics on DigitalMarketingSA</p>
+      </section>
+
+      <section id="login-tabs">
+        <div class="tab-switcher">
+          <button class="tab-btn active" id="loginTabBtn" onclick="switchTab('login')">
+            <i class="fas fa-sign-in-alt"></i> Login
+          </button>
+          <button class="tab-btn" id="registerTabBtn" onclick="switchTab('register')">
+            <i class="fas fa-user-plus"></i> Register
+          </button>
+        </div>
+      </section>
+
+      <!-- LOGIN TAB -->
+      <section id="loginTab" class="login-tab-content">
+        <div class="auth-form-wrapper">
+          <div class="auth-form-card">
+            <div class="form-group">
+              <label for="loginEmail">Email Address <span class="required">*</span></label>
+              <input type="email" id="loginEmail" placeholder="e.g. gift@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">Password <span class="required">*</span></label>
+              <input type="password" id="loginPassword" placeholder="Your password" />
+            </div>
+            <div id="loginMessage" class="auth-message" style="display:none;"></div>
+            <button class="auth-submit-btn" onclick="submitLogin()">
+              <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+            <p class="auth-switch-text">
+              Don't have an account? <a href="#" onclick="switchTab('register')">Register here</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- REGISTER TAB -->
+      <section id="registerTab" class="login-tab-content" style="display:none;">
+        <div class="auth-form-wrapper">
+          <div class="auth-form-card">
+            <div class="unified-account-notice">
+              <i class="fas fa-exchange-alt"></i>
+              <div>
+                <strong>One Unified Account</strong>
+                <p>Switch between Buyer and Seller mode anytime from your profile. One account does it all.</p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="regName">Full Name <span class="required">*</span></label>
+              <input type="text" id="regName" placeholder="e.g. Gift Seilane" />
+            </div>
+            <div class="form-group">
+              <label for="regEmail">Email Address <span class="required">*</span></label>
+              <input type="email" id="regEmail" placeholder="e.g. gift@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="regPhone">Phone Number <span class="required">*</span></label>
+              <input type="tel" id="regPhone" placeholder="e.g. 073 123 4567" />
+            </div>
+            <div class="form-group">
+              <label for="regPassword">Password <span class="required">*</span></label>
+              <input type="password" id="regPassword" placeholder="Minimum 6 characters" />
+            </div>
+            <div class="form-group">
+              <label for="regBio">Bio / About You</label>
+              <textarea id="regBio" rows="2" placeholder="Tell buyers/sellers a bit about yourself..."></textarea>
+            </div>
+            <div id="registerMessage" class="auth-message" style="display:none;"></div>
+            <button class="auth-submit-btn" onclick="submitRegister()">
+              <i class="fas fa-user-plus"></i> Create Account
+            </button>
+            <p class="auth-switch-text">
+              Already have an account? <a href="#" onclick="switchTab('login')">Login here</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 DigitalMarketingSA. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="login.js"></script>
+    <script src="nav.js"></script>
+  </body>
+</html>

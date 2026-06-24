@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <title>DigitalMarketingSA - Find Repair Shops</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="shortcut icon" href="images/Logo2.png" type="image/x-icon" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="repair.css" />
+  </head>
+
+  <body>
+    <header id="header">
+      <a href="index.html" class="logo-link">
+        <img src="images/Logo.png" class="logo" alt="DigitalMarketingSA" />
+      </a>
+      <nav class="navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="order.html">Order</a></li>
+          <li><a class="active" href="repair.html">Repair</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="cart.html" class="cart-nav-link">Cart <span class="cart-count-badge" id="cartCountBadge" style="display:none;">0</span> 🛒</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- ===== REPAIR HERO ===== -->
+      <section id="repair-hero">
+        <h1><i class="fas fa-tools"></i> Find Repair Shops Near You</h1>
+        <p>Real electronics repair shops across all 9 South African provinces — located on Google Maps</p>
+      </section>
+
+      <!-- ===== GOOGLE MAPS API KEY SETUP ===== -->
+      <!-- If the map does not load, enter your free Google Maps API key below -->
+      <div id="mapsSetupPanel" class="maps-setup-panel" style="display:none;">
+        <div class="maps-setup-inner">
+          <h3><i class="fas fa-map-marked-alt"></i> Google Maps API Key Required</h3>
+          <p>Enter your free Google Maps API key to show real repair shop locations on the map.</p>
+          <p><a href="https://console.cloud.google.com/apis/credentials" target="_blank">Get a free key from Google Cloud Console →</a></p>
+          <div class="maps-key-row">
+            <input type="text" id="mapsApiKeyInput" placeholder="Paste your Google Maps API key here..." />
+            <button onclick="saveMapsKey()"><i class="fas fa-save"></i> Save Key</button>
+          </div>
+          <p id="mapsKeyMsg" style="display:none;color:#28a745;font-weight:700;margin-top:8px;"></p>
+        </div>
+      </div>
+
+      <!-- ===== SEARCH + FILTERS ===== -->
+      <section class="repair-controls">
+        <div class="repair-search-row">
+          <div class="repair-search-input">
+            <i class="fas fa-search"></i>
+            <input type="text" id="repairSearch" placeholder="Search by city, area or province..." oninput="filterRepairShops()" />
+          </div>
+          <select id="provinceFilter" onchange="filterRepairShops()">
+            <option value="all">All Provinces</option>
+            <option value="Gauteng">Gauteng</option>
+            <option value="Western Cape">Western Cape</option>
+            <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+            <option value="Eastern Cape">Eastern Cape</option>
+            <option value="Free State">Free State</option>
+            <option value="Limpopo">Limpopo</option>
+            <option value="Mpumalanga">Mpumalanga</option>
+            <option value="Northern Cape">Northern Cape</option>
+            <option value="North West">North West</option>
+          </select>
+          <button class="locate-me-btn" onclick="locateMe()">
+            <i class="fas fa-location-arrow"></i> Near Me
+          </button>
+        </div>
+      </section>
+
+      <!-- ===== MAIN LAYOUT: MAP + CARDS ===== -->
+      <section class="repair-main-layout">
+
+        <!-- Google Map -->
+        <div class="repair-map-container">
+          <div id="repairMap">
+            <div id="mapPlaceholder" class="map-placeholder">
+              <i class="fas fa-map-marked-alt"></i>
+              <p>Loading Google Maps...</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shop Cards -->
+        <div class="repair-cards-panel">
+          <div class="repair-cards-header">
+            <h3 id="repairResultsTitle">All Repair Shops</h3>
+            <span id="repairCount" class="repair-count-badge">0 shops</span>
+          </div>
+          <div id="repairCardsList" class="repair-cards-list"></div>
+          <p id="noRepairResults" class="no-results-msg" style="display:none;">
+            No shops found for that location. Try a different city or province.
+          </p>
+        </div>
+
+      </section>
+
+    </main>
+
+    <footer>
+      <p>&copy; 2025 DigitalMarketingSA. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="repair.js"></script>
+    <script src="nav.js"></script>
+
+    <!-- Google Maps JS API — loaded dynamically by repair.js with stored key -->
+    <!-- Replace YOUR_GOOGLE_MAPS_API_KEY below OR use the in-page setup panel -->
+    <script id="gmapsScript"></script>
+  </body>
+</html>

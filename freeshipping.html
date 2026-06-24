@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <title>DigitalMarketingSA - Free Shipping</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="shortcut icon" href="images/Logo2.png" type="image/x-icon" />
+    <link rel="stylesheet" href="index.css" />
+    <style>
+      .policy-container {
+        max-width: 1000px;
+        margin: 80px auto;
+        padding: 40px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+      .policy-container h1 {
+        color: #1a2c3e;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+      .policy-container h1::after {
+        content: "";
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #32b7ec, #1a1f2e);
+        display: block;
+        margin-top: 10px;
+        border-radius: 2px;
+      }
+      .policy-container p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #4a627a;
+        margin-bottom: 20px;
+      }
+      .back-link {
+        display: inline-block;
+        margin-top: 30px;
+        color: #32b7ec;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .back-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <a href="index.html" class="logo-link">
+        <img src="images/Logo.png" class="logo" alt="DigitalMarketingSA" />
+      </a>
+      <nav class="navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="order.html">Order</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="cart.html" class="cart-nav-link">Cart <span class="cart-count-badge" id="cartCountBadge" style="display:none;">0</span> 🛒</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="policy-container">
+        <h1>Free Shipping Policy</h1>
+        <p>
+          At DigitalMarketingSA, we offer free shipping on all orders over R500
+          within South Africa.
+        </p>
+        <p>
+          Standard delivery takes 3-5 business days. You will receive a tracking
+          number once your order has been dispatched.
+        </p>
+        <p>
+          For orders under R500, a flat rate of R60 applies for standard
+          shipping.
+        </p>
+        <p>
+          Need your order urgently? Express shipping is available at checkout
+          for an additional R100 fee, delivering within 1-2 business days.
+        </p>
+        <p>
+          We deliver to all major cities and towns across South Africa. For
+          remote areas, delivery may take an additional 2-3 days.
+        </p>
+        <a href="index.html" class="back-link"
+          ><i class="fas fa-arrow-left"></i> Back to Home</a
+        >
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 DigitalMarketingSA. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="nav.js"></script>
+  </body>
+</html>

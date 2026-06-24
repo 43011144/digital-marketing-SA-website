@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <title>DigitalMarketingSA - 24/7 AI Support Agent</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="shortcut icon" href="images/Logo2.png" type="image/x-icon" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="support.css" />
+    <!-- EmailJS SDK — for email setup panel -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  </head>
+
+  <body>
+    <header id="header">
+      <a href="index.html" class="logo-link">
+        <img src="images/Logo.png" class="logo" alt="DigitalMarketingSA" />
+      </a>
+      <nav class="navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="order.html">Order</a></li>
+          <li><a class="active" href="support.html">Support</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="cart.html" class="cart-nav-link">Cart <span class="cart-count-badge" id="cartCountBadge" style="display:none;">0</span> 🛒</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="support-main">
+
+      <!-- ===== FULL FLEX AI CHAT LAYOUT ===== -->
+      <div class="support-wrapper">
+
+        <!-- LEFT SIDEBAR — info cards + provider switcher -->
+        <aside class="support-sidebar">
+
+          <div class="sidebar-brand">
+            <div class="sidebar-robot-icon"><i class="fas fa-robot"></i></div>
+            <div>
+              <strong>DMSA AI Agent</strong>
+              <small>Powered by OpenAI &bull; 24/7</small>
+            </div>
+          </div>
+
+          <!-- Online status + provider switcher -->
+          <div class="sidebar-provider">
+            <span class="provider-online-dot"></span>
+            <span id="supportProviderLabel">OpenAI &bull; Online</span>
+            <select id="supportProvider" title="Switch AI provider">
+              <option value="openai">OpenAI (GPT-4o mini)</option>
+              <option value="deepseek">DeepSeek</option>
+            </select>
+          </div>
+
+          <!-- Quick topic cards -->
+          <div class="sidebar-cards">
+            <div class="sidebar-card" data-question="Tell me about Free Shipping">
+              <i class="fas fa-truck"></i>
+              <div>
+                <strong>Free Shipping</strong>
+                <small>Delivery policy</small>
+              </div>
+            </div>
+            <div class="sidebar-card" data-question="Explain the 30 Day Return policy">
+              <i class="fas fa-undo-alt"></i>
+              <div>
+                <strong>30 Day Return</strong>
+                <small>Easy refunds</small>
+              </div>
+            </div>
+            <div class="sidebar-card" data-question="How secure is payment?">
+              <i class="fas fa-lock"></i>
+              <div>
+                <strong>Secure Payment</strong>
+                <small>100% protected</small>
+              </div>
+            </div>
+            <div class="sidebar-card" data-question="Help me make a payment">
+              <i class="fas fa-credit-card"></i>
+              <div>
+                <strong>Make a Payment</strong>
+                <small>FNB, Capitec, EFT</small>
+              </div>
+            </div>
+            <div class="sidebar-card" data-question="I need a repair shop near me">
+              <i class="fas fa-tools"></i>
+              <div>
+                <strong>Find Repair Shop</strong>
+                <small>All 9 provinces</small>
+              </div>
+            </div>
+            <div class="sidebar-card" data-question="How do I sell my device?">
+              <i class="fas fa-store"></i>
+              <div>
+                <strong>Sell a Device</strong>
+                <small>List &amp; earn</small>
+              </div>
+            </div>
+            <div class="sidebar-card" data-question="What is DigitalMarketingSA about?">
+              <i class="fas fa-info-circle"></i>
+              <div>
+                <strong>About Us</strong>
+                <small>Our platform</small>
+              </div>
+            </div>
+            <div class="sidebar-card" data-question="How do I track my order?">
+              <i class="fas fa-box"></i>
+              <div>
+                <strong>Track My Order</strong>
+                <small>Order status</small>
+              </div>
+            </div>
+          </div>
+          <!-- EmailJS Setup shortcut in sidebar -->
+          <div class="sidebar-email-setup" id="sidebarEmailSetup">
+            <div class="sidebar-email-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <strong>Email Setup</strong>
+              <small id="emailSetupStatus">Not configured</small>
+            </div>
+            <button class="sidebar-email-btn" onclick="toggleSidebarEmailPanel()" title="Configure email">
+              <i class="fas fa-cog"></i>
+            </button>
+          </div>
+
+          <!-- Inline EmailJS setup panel for sidebar -->
+          <div id="emailSetupPanel" class="sidebar-ejs-panel" style="display:none;">
+            <h4><i class="fas fa-envelope"></i> Email Notifications</h4>
+            <p>Enter your <a href="https://www.emailjs.com" target="_blank">EmailJS</a> keys so order emails reach your Gmail inbox.</p>
+            <label>Public Key</label>
+            <input type="text" id="ejsPublicKey" placeholder="AbCdEfGhIjKlMnOp" />
+            <label>Service ID</label>
+            <input type="text" id="ejsServiceId" placeholder="service_abc1234" />
+            <label>Template ID</label>
+            <input type="text" id="ejsTemplateId" placeholder="template_xyz7890" />
+            <p id="ejsSaveMsg" style="display:none;color:#28a745;font-weight:700;font-size:0.8rem;"></p>
+            <div class="sidebar-ejs-actions">
+              <a href="https://www.emailjs.com" target="_blank" class="ejs-link-btn-sm">Get Free Keys</a>
+              <button onclick="saveEmailSetup(); updateEmailSetupStatus();" class="ejs-save-btn-sm">Save</button>
+            </div>
+          </div>
+
+        </aside>
+
+        <!-- MAIN CHAT PANEL -->
+        <div class="support-chat-panel">
+
+          <!-- Chat header -->
+          <div class="chat-panel-header">
+            <div class="chat-panel-title">
+              <div class="chat-avatar-dot">
+                <i class="fas fa-robot"></i>
+                <span class="chat-online-badge"></span>
+              </div>
+              <div>
+                <strong>DigitalMarketingSA AI Assistant</strong>
+                <small>Always online — ask me anything</small>
+              </div>
+            </div>
+            <button class="clear-chat-btn" onclick="clearSupportChat()" title="Clear conversation">
+              <i class="fas fa-redo"></i> Clear
+            </button>
+          </div>
+
+          <!-- Messages area -->
+          <div class="chat-messages" id="chatMessages">
+            <div class="message agent">
+              <div class="chat-msg-avatar"><i class="fas fa-robot"></i></div>
+              <div class="message-bubble">
+                👋 Hi there! I'm the DigitalMarketingSA 24/7 AI Assistant — powered by OpenAI.<br><br>
+                I can help you with orders, payments, product info, finding repair shops, selling your device, and much more.<br><br>
+                You can <strong>type or use voice</strong> to ask me anything! 🎤
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick buttons row -->
+          <div class="quick-buttons" id="quickButtons">
+            <button class="quick-btn" data-question="Tell me about Free Shipping">📦 Free Shipping</button>
+            <button class="quick-btn" data-question="Explain the 30 Day Return policy">🔄 Returns</button>
+            <button class="quick-btn" data-question="How secure is payment?">🔒 Payments</button>
+            <button class="quick-btn" data-question="I need a repair shop near me">🔧 Repair Shop</button>
+            <button class="quick-btn" data-question="How do I sell my device?">💼 Sell Device</button>
+          </div>
+
+          <!-- Input area — text + voice + send -->
+          <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Type your question or press 🎤 to speak..." autocomplete="off" />
+
+            <!-- Voice recognition button -->
+            <button id="voiceBtn" class="voice-btn" onclick="toggleVoice()" title="Click to speak">
+              <i class="fas fa-microphone" id="voiceIcon"></i>
+            </button>
+
+            <!-- Send button -->
+            <button id="sendBtn" class="send-btn">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+
+          <!-- Voice status indicator -->
+          <div id="voiceStatus" class="voice-status" style="display:none;">
+            <span class="voice-listening-dot"></span>
+            <span id="voiceStatusText">Listening... speak now</span>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+
+    <footer>
+      <p>&copy; 2025 DigitalMarketingSA. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="send_emailjs.js"></script>
+    <script src="support.js"></script>
+    <script src="nav.js"></script>
+  </body>
+</html>
